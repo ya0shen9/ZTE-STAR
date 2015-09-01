@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <bool name="config_scale_bimap">true</bool>
+     <fraction  name="config_scale_bimap_scale">70%</fraction >
+     <bool name="support_lockscreen_wallpaper_setting">true</bool>
+     <bool name="gong_xin_bu_ce_shi">true</bool>
+     <integer name="wallpaper_alpha_blur">154</integer>
+     <bool name="workspace_icon_text_double_line">true</bool>
+     <bool name="support_wallpaper_alpha_blur">false</bool>
+	 
+	 <bool name="default_need_icon_bg">false</bool>
+</resources>

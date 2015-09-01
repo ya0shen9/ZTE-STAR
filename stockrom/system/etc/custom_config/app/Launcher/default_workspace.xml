@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.zte.milauncher">
+	<!--  screen  [0]   -->
+	<appwidget
+		launcher:packageName="cn.zte.music"
+		launcher:className="cn.zte.music.MediaAppWidgetProvider"
+		launcher:screen="0"
+		launcher:x="0"
+		launcher:y="0"
+		launcher:spanX="4"
+		launcher:spanY="1" />
+	<favorite
+		launcher:packageName="com.quicinc.fmradio"
+		launcher:className="com.quicinc.fmradio.FMRadio"
+		launcher:screen="0"
+		launcher:x="0"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.zte.videoplayer"
+		launcher:className="com.zte.videoplayer.VideoBrowserActivity"
+		launcher:screen="0"
+		launcher:x="1"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.android.gallery3d"
+		launcher:className="com.android.gallery3d.app.Gallery"
+		launcher:screen="0"
+		launcher:x="2"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="zte.com.cn.filer"
+		launcher:className="zte.com.cn.filer.FilerActivity"
+		launcher:screen="0"
+		launcher:x="3"
+		launcher:y="4" />
+	<!--  screen  [1]   -->
+	<appwidget
+		launcher:packageName="com.zte.appwidget.search"
+		launcher:className="com.zte.appwidget.search.Monitor"
+		launcher:screen="1"
+		launcher:x="0"
+		launcher:y="0"
+		launcher:spanX="4"
+		launcher:spanY="1" />
+	<favorite
+		launcher:packageName="com.jingdong.app.mall"
+		launcher:className="com.jingdong.app.mall.MainActivity"
+		launcher:screen="1"
+		launcher:x="0"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.android.calendar"
+		launcher:className="com.android.calendar.AllInOneActivity"
+		launcher:screen="1"
+		launcher:x="1"
+		launcher:y="4" />
+<folder
+		launcher:title="工具"
+		launcher:screen="1"
+		launcher:x="2"
+		launcher:y="4">
+		<favorite
+			launcher:packageName="com.android.calculator2"
+			launcher:className="com.android.calculator2.Calculator" />
+		<favorite
+			launcher:packageName="zte.com.cn.alarmclock"
+			launcher:className="zte.com.cn.alarmclock.AlarmClock" />
+		<favorite
+			launcher:packageName="zte.android.flashlight"
+			launcher:className="zte.android.flashlight.FlashLightActivity" />
+		<favorite
+			launcher:packageName="zte.com.cn.cloudnotepad"
+			launcher:className="zte.com.cn.cloudnotepad.ui.SplashActivity" />
+	</folder>
+	<favorite
+		launcher:packageName="com.android.settings"
+		launcher:className="com.android.settings.SettingsMain"
+		launcher:screen="1"
+		launcher:x="3"
+		launcher:y="4" />
+	<!--  screen  [2]   -->
+	<appwidget
+		launcher:packageName="com.zte.appwidget.hfweather"
+		launcher:className="com.zte.appwidget.hfweather.HFWeatherWidget"
+		launcher:screen="2"
+		launcher:x="0"
+		launcher:y="0"
+		launcher:spanX="4"
+		launcher:spanY="2" />
+		<favorite
+		launcher:packageName="com.zte.camera"
+		launcher:className="com.zte.camera.CameraActivity"
+		launcher:screen="2"
+		launcher:x="0"
+		launcher:y="4" />
+		<favorite
+		launcher:packageName="zte.com.cn.driverMode"
+		launcher:className="zte.com.cn.driverMode.guide.DMStartActivity"
+		launcher:screen="2"
+		launcher:x="1"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.zte.heartyservice"
+		launcher:className="com.zte.heartyservice.main.HeartServiceActivityLauncher"
+		launcher:screen="2"
+		launcher:x="2"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="cn.zte.music"
+		launcher:className="cn.zte.music.activity.MusicBrowserActivity"
+		launcher:screen="2"
+		launcher:x="3"
+		launcher:y="4" />
+	<!--  screen  [3]   -->
+	<favorite
+		launcher:packageName="cuuca.sendfiles.Activity"
+		launcher:className="com.zte.share.activity.GuidActivity"
+		launcher:screen="3"
+		launcher:x="0"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.zte.fullshare"
+		launcher:className="com.zte.fullshare.Main"
+		launcher:screen="3"
+		launcher:x="1"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.zte.handservice"
+		launcher:className="com.zte.handservice.MainActivity"
+		launcher:screen="3"
+		launcher:x="2"
+		launcher:y="4" />
+	<favorite
+		launcher:packageName="com.zte.backup.mmi"
+		launcher:className="com.zte.backup.view_blueBG.StartActivity"
+		launcher:screen="3"
+		launcher:x="3"
+		launcher:y="4" />
+	<!--  screen  [4]   -->
+	<appwidget
+		launcher:packageName="com.zte.appwidget.calendar"
+		launcher:className="com.zte.appwidget.calendar.Monitor"
+		launcher:screen="4"
+		launcher:x="0"
+		launcher:y="0"
+		launcher:spanX="4"
+		launcher:spanY="4" />
+	<!--  Hotseat (We use the screen as the position of the item in the hotseat)  -->
+	<apps
+		launcher:packageName=""
+		launcher:className=""
+		launcher:container="-101"
+		launcher:screen="2"
+		launcher:x="2"
+		launcher:y="0" />
+	<!--  Hotseat (We use the screen as the position of the item in the hotseat)  -->
+	<favorite
+		launcher:packageName="com.android.contacts"
+		launcher:className="com.android.contacts.activities.DialtactsActivity"
+		launcher:container="-101"
+		launcher:screen="0"
+		launcher:x="0"
+		launcher:y="0" />
+	<!--  Hotseat (We use the screen as the position of the item in the hotseat)  -->
+	<favorite
+		launcher:packageName="com.android.contacts"
+		launcher:className="com.android.contacts.activities.PeopleActivity"
+		launcher:container="-101"
+		launcher:screen="1"
+		launcher:x="1"
+		launcher:y="0" />
+	<!--  Hotseat (We use the screen as the position of the item in the hotseat)  -->
+	<favorite
+		launcher:packageName="com.android.mms"
+		launcher:className="com.android.mms.ui.MainUISelectionActivity"
+		launcher:container="-101"
+		launcher:screen="3"
+		launcher:x="3"
+		launcher:y="0" />
+	<!--  Hotseat (We use the screen as the position of the item in the hotseat)  -->
+	<favorite
+		launcher:packageName="com.ume.browser"
+		launcher:className="com.ume.browser.MainActivity"
+		launcher:container="-101"
+		launcher:screen="4"
+		launcher:x="4"
+		launcher:y="0" />
+</favorites>

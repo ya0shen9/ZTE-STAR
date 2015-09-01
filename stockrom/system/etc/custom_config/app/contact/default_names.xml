@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contacts version="6">
+<names locale="en_US">
+    <name id="中兴手机客户服务">
+        <number>4008809999</number>
+		<number>075526779999</number>
+		<website>www.ztedevice.com.cn/</website>
+		<structuredpostal>广东省深圳市南山区科技南路55号</structuredpostal>
+		<photo>zte.png</photo>
+    </name>
+</names>
+<names locale="zh_CN">
+    <name id="中兴手机客户服务">
+        <number>4008809999</number>
+		<number>075526779999</number>
+		<website>www.ztedevice.com.cn/</website>
+		<structuredpostal>广东省深圳市南山区科技南路55号</structuredpostal>
+		<photo>zte.png</photo>
+    </name>
+</names>
+</contacts>
