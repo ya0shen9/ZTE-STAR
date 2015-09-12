@@ -1,0 +1,25 @@
+--- arch/arm/mach-msm/board-8226.c
++++ arch/arm/mach-msm/board-8226.c
+@@ -58,6 +58,12 @@
+ #include "pm.h"
+ #include "modem_notifier.h"
+ #include "spm-regulator.h"
++#ifdef CONFIG_LCD_KCAL
++#include <mach/kcal.h>
++#include <linux/module.h>
++#include "../../../drivers/video/msm/mdss/mdss_fb.h"
++extern int update_preset_lcdc_lut(void);
++#endif
+ 
+ static struct memtype_reserve msm8226_reserve_table[] __initdata = {
+ 	[MEMTYPE_SMI] = {
+@@ -192,6 +244,9 @@
+ 	cpr_regulator_init();
+ 	tsens_tm_init_driver();
+ 	msm_thermal_device_init();
++#ifdef CONFIG_LCD_KCAL
++	add_lcd_kcal_devices();
++#endif
+ }
+ 
+ void __init msm8226_init(void)

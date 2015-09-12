@@ -1,0 +1,302 @@
+menu "Audience earSmart Audio chip"
+
+choice
+	prompt "Chip Selection"
+
+config SND_SOC_ES325
+        bool "eS325"
+	---help---
+	  Enable support for Audience eS325 audio chip
+	  Possible control+data and high bandwidth bus combinations:
+	  * I2C+I2S and UART
+	  * SPI+I2S and UART
+	  * SLIMbus + SLIMbus and UART
+	  * I2C+I2S and SPI
+
+config SND_SOC_ES515
+        bool "eS515"
+	---help---
+	  Enable support for Audience eS515 audio chip
+	  Possible control+data and high bandwidth bus combinations:
+	  * I2C+I2S and UART
+	  * SPI+I2S and UART
+	  * SLIMbus + SLIMbus and UART
+	  * I2C+I2S and SPI
+
+config SND_SOC_ES705
+        bool "eS705"
+	---help---
+	  Enable support for Audience eS705 audio chip
+	  Possible control+data and high bandwidth bus combinations:
+	  * I2C+I2S and UART
+	  * SPI+I2S and UART
+	  * SLIMbus + SLIMbus and UART
+	  * I2C+I2S and SPI
+
+config SND_SOC_ES755
+        bool "eS755"
+	---help---
+	  Enable support for Audience eS755 audio chip
+	  Possible control+data and high bandwidth bus combinations:
+	  * I2C+I2S and UART
+	  * SPI+I2S and UART
+	  * SLIMbus + SLIMbus and UART
+	  * I2C+I2S and SPI
+
+endchoice
+
+# Legacy config options for eS705
+
+if SND_SOC_ES705
+
+config SND_SOC_ES705_I2S
+	tristate
+
+choice
+	prompt "eS705 Command Interface"
+	default SND_SOC_ES705_SLIM
+
+config SND_SOC_ES705_SLIM
+	bool "SLIMbus based audio processor" if SLIMBUS
+	---help---
+	  This enables SLIMbus as control interface
+	  as well as data interface to communicate
+	  with firmware. Using SLIMbus only as a control
+	  interface is not supported.
+
+config SND_SOC_ES705_I2C
+	bool "I2C based audio processor"
+	select SND_SOC_ES705_I2S
+	---help---
+	  This enabled I2C as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with I2C as control
+	  interface.
+
+config SND_SOC_ES705_SPI
+	bool "SPI based audio processor"
+	select SND_SOC_ES705_I2S
+	---help---
+	  This enabled SPI as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with SPI as control
+	  interface.
+
+config SND_SOC_ES705_UART
+        bool "UART based audio processor"
+	select SND_SOC_ES705_I2S
+        ---help---
+	  This enabled UART as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with SPI as control
+	  interface.
+
+endchoice
+
+choice
+	prompt "Datablock Read/Write Transport"
+	default SND_SOC_ES705_DATABLOCK_DEFAULT
+
+config SND_SOC_ES705_DATABLOCK_BUS_DEFAULT
+	bool "Default control interface"
+	---help---
+	  Default control interface will be used
+	  for read datablock and write data block.
+	  This is used when datablock read and write
+	  done using earSmart character device.
+
+config SND_SOC_ES705_DATABLOCK_BUS_SLIM
+	bool "SLIMbus" if SND_SOC_ES705_SLIM
+	---help---
+	  SLIMbus interface will be used for read datablock and
+	  write data block.
+	  This is used when datablock read and write
+	  done using earSmart character device.
+
+config SND_SOC_ES705_DATABLOCK_BUS_UART
+	bool "UART high bandwidth transport"
+	---help---
+	  UART interface will be used for read datablock and
+	  write data block.
+endchoice
+endif
+
+config SND_SOC_ES705_UART_FW_DOWNLOAD
+	depends on SND_SOC_ES705_SLIM
+	bool "VS firmware download over UART"
+	---help---
+	  Ebable VS fimware downlaod over UART
+
+config SND_SOC_ES705_UART_WAKEUP
+	depends on SND_SOC_ES705
+	bool "ES705 wakeup over UART"
+	---help---
+	Ebabling this feature uses UART TX of host to wakeup eS705
+	instead of wakeup gpio.
+
+# Options for escore infrastructure
+
+if SND_SOC_ES325 || SND_SOC_ES515 || SND_SOC_ES755
+
+config SND_SOC_ES_I2S
+	tristate
+
+choice
+	prompt "Command Interface"
+	default SND_SOC_ES_SLIM
+
+config SND_SOC_ES_SLIM
+	bool "SLIMbus based codec" if SLIMBUS
+	select SND_SOC_ES_WAKEUP_UART
+	---help---
+	  This enables SLIMbus as control interface
+	  as well as data interface to communicate
+	  with firmware. Using SLIMbus only as a control
+	  interface is not supported.
+
+config SND_SOC_ES_I2C
+	bool "I2C based codec"
+	select SND_SOC_ES_I2S
+	---help---
+	  This enabled I2C as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with I2C as control
+	  interface.
+
+config SND_SOC_ES_SPI
+	bool "SPI based codec"
+	select SND_SOC_ES_I2S
+	---help---
+	  This enabled SPI as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with SPI as control
+	  interface.
+
+config SND_SOC_ES_UART
+        bool "UART based codec"
+	select SND_SOC_ES_CDEV
+	select SND_SOC_ES_I2S
+        ---help---
+	  This enabled SPI as control interface. For data
+	  interface I2S will be selecte as
+	  default audio data interface. SLIMbus as a data interface
+	  is not supported in combination with SPI as control
+	  interface.
+
+endchoice
+endif
+
+# High bandwidth bus support not enabled for eS705 yet
+if SND_SOC_ES325 || SND_SOC_ES515 || SND_SOC_ES755
+choice
+	prompt "High Bandwidth Transport"
+	default SND_SOC_ES_HIGH_BW_BUS_DEFAULT
+
+config SND_SOC_ES_HIGH_BW_BUS_DEFAULT
+	bool "Default control interface"
+	---help---
+	  Default control interface will be used
+	  as high bandwidth bus interface. High bandwidth
+	  bus interface will primarily be used to
+	  download the firmware on audio processor.
+
+config SND_SOC_ES_HIGH_BW_BUS_SLIM
+	bool "SLIMbus" if SND_SOC_ES_SLIM || SND_SOC_ES705_SLIM
+	---help---
+	  SLIMbus will be used to load firmware on chip.
+	  High bandwidth  bus interface will primarily
+	  be used to download the firmware on earSmart
+	  audio processor.
+
+config SND_SOC_ES_HIGH_BW_BUS_I2C
+	bool "I2C high bandwidth bus"
+	---help---
+	  I2C will be used to load firmware on chip.
+	  High bandwidth  bus interface will primarily
+	  be used to download the firmware on earSmart
+	  audio processor.
+
+config SND_SOC_ES_HIGH_BW_BUS_SPI
+	bool "SPI high bandwidth bus"
+	---help---
+	  SPI will be used to load firmware on chip.
+	  High bandwidth  bus interface will primarily
+	  be used to download the firmware on earSmart
+	  audio processor.
+
+config SND_SOC_ES_HIGH_BW_BUS_UART
+	bool "UART high bandwidth transport"
+	---help---
+	  UART will be used to load firmware on chip.
+	  High bandwidth  bus interface will primarily
+	  be used to download the firmware on earSmart
+	  audio processor.
+endchoice
+endif
+
+# Should be used in eS325 driver to use different baud rates
+# for multi stage firmware download
+config SND_SOC_ES_1ST_STAGE_UART_BAUD
+	depends on SND_SOC_ES_HIGH_BW_BUS_UART && SND_SOC_ES325
+	prompt "UART baud rate for 1st stage firmware download"
+	int
+	default 28800
+	---help---
+	  Supported buad rates
+	  * 19200
+	  * 28800
+	  * 38400
+	  * 57600
+
+config SND_SOC_ES_2ND_STAGE_UART_BAUD
+	depends on SND_SOC_ES_HIGH_BW_BUS_UART && SND_SOC_ES325
+	prompt "UART baud rate for 2nd stage firmware download"
+	int
+	default 1000000
+	---help---
+	  Supported buad rates
+	  * 921600
+	  * 1000000
+	  * 2000000
+	  * 3000000
+	  The 1st stage firmware will contain the information about the baud
+	  rate for 2nd stage download.
+
+config SND_SOC_ES_UARTHS_BAUD
+	depends on SND_SOC_ES_HIGH_BW_BUS_UART && (SND_SOC_ES755 || SND_SOC_ES705)
+	prompt "UART baud rate for firmware download"
+	int
+	default 3072000
+	---help---
+	  Supported buad rates
+	  * 460800
+	  * 921600
+	  * 1000000
+	  * 1024000
+	  * 1152000
+	  * 2000000
+	  * 2048000
+	  * 3000000
+	  * 3072000
+
+config SND_SOC_ES_CDEV
+        bool "Character device interface"
+	---help---
+	The character device interface allows the streaming out the audio
+	data through selected Bus interface. Three nodes created under /dev
+	provide following features:
+	* /dev/adnc0 --> Alternate command interface to firmware
+	* /dev/adnc1 --> Download firmware runtime
+	* /dev/adnc2 --> Stream out debug audio stream
+
+config SND_SOC_ES_VS
+        bool "Voice Sense feature"
+	depends on SND_SOC_ES705 || SND_SOC_ES755 || SND_SOC_ES325
+	---help---
+	This allows to select VS feature
+endmenu
