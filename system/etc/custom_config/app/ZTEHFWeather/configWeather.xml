@@ -1,0 +1,4 @@
+<resources>
+	<string name="config_clock_packages_name">zte.com.cn.alarmclock</string>
+	<string name="config_clock_activity_name">zte.com.cn.alarmclock.AlarmClock</string>
+</resources>
