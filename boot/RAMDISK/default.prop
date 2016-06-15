@@ -1,0 +1,11 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+persist.sys.ztedload.enable=0
+ro.secure=1
+ro.adb.secure=1
+ro.allow.mock.location=0
+ro.debuggable=0
+persist.sys.usb.config=cdrom
+persist.sys.strict_op_enable=false
+persist.sys.whitelist=/system/etc/whitelist_appops.xml
